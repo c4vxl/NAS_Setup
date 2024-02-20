@@ -101,14 +101,14 @@ display_help() {
 
     echo -e "\nUsage: $0 [OPTIONS]"
     echo -e "Options:"
-    echo "  --group=GROUP          Set the NAS group name (default: NAS_user)"
-    echo "  --acc=USER:PASSWORD   Add a user account with the specified username and password"
-    echo "  --path=PATH            Set the path to the shared folder (required)"
-    echo "  --name=NAS_NAME        Set the name of the NAS (required)"
-    echo "  --public=PUBLIC        Set whether the folder should be public (yes/no) (required)"
-    echo "  --writable=WRITABLE    Set whether the folder should be writable (yes/no) (required)"
-    echo "  --readable=READABLE    Set whether the folder should be readable (yes/no) (required)"
-    echo "  --help                 Display this help message"
+    echo "  -group=GROUP          Set the NAS group name (default: NAS_user)"
+    echo "  -acc=USER:PASSWORD   Add a user account with the specified username and password"
+    echo "  -path=PATH            Set the path to the shared folder (required)"
+    echo "  -name=NAS_NAME        Set the name of the NAS (required)"
+    echo "  -public=PUBLIC        Set whether the folder should be public (yes/no) (required)"
+    echo "  -writable=WRITABLE    Set whether the folder should be writable (yes/no) (required)"
+    echo "  -readable=READABLE    Set whether the folder should be readable (yes/no) (required)"
+    echo "  -help                 Display this help message"
 }
 
 # Process command line options
@@ -137,7 +137,7 @@ while getopts ":g:a:p:n:u:w:r:h" opt; do
                     PUBLIC="no"
                     ;;
                 *)
-                    echo "Invalid value for --public: $PUBLIC_OPTION. Use 'yes' or 'no'."
+                    echo "Invalid value for -public: $PUBLIC_OPTION. Use 'yes' or 'no'."
                     exit 1
                     ;;
             esac
@@ -152,7 +152,7 @@ while getopts ":g:a:p:n:u:w:r:h" opt; do
                     WRITABLE="no"
                     ;;
                 *)
-                    echo "Invalid value for --writable: $WRITABLE_OPTION. Use 'yes' or 'no'."
+                    echo "Invalid value for -writable: $WRITABLE_OPTION. Use 'yes' or 'no'."
                     exit 1
                     ;;
             esac
@@ -167,7 +167,7 @@ while getopts ":g:a:p:n:u:w:r:h" opt; do
                     READABLE="no"
                     ;;
                 *)
-                    echo "Invalid value for --readable: $READABLE_OPTION. Use 'yes' or 'no'."
+                    echo "Invalid value for -readable: $READABLE_OPTION. Use 'yes' or 'no'."
                     exit 1
                     ;;
             esac
@@ -189,7 +189,7 @@ done
 
 # Check required arguments
 if [ -z "$SHARE_PATH" ] || [ -z "$NAS_NAME" ] || [ -z "$PUBLIC" ] || [ -z "$WRITABLE" ] || [ -z "$READABLE" ]; then
-    echo "Error: --path, --name, --public, --writable, and --readable are required arguments."
+    echo "Error: -path, -name, -public, -writable, and -readable are required arguments."
     exit 1
 fi
 
